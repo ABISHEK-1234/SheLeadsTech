@@ -1,0 +1,87 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomeScreen(), // Changed to a custom HomeScreen widget
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Women in STEM Network'), // Changed app title
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Welcome to Women in STEM Network!',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to the Women in STEM profiles page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+              },
+              child: Text('Explore Profiles'),
+            ),
+            SizedBox(height: 10.0),
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to the Women in STEM events page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EventsPage()),
+                );
+              },
+              child: Text('Upcoming Events'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ProfilePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Women in STEM Profiles'),
+      ),
+      body: Center(
+        child: Text('Profiles will be listed here'), // Placeholder content
+      ),
+    );
+  }
+}
+
+class EventsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Upcoming Events'),
+      ),
+      body: Center(
+        child: Text('Upcoming events will be listed here'), // Placeholder content
+      ),
+    );
+  }
+}
